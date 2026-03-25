@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-slate-950 text-slate-100 antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
+      radial-gradient(circle at top right, rgba(168, 85, 247, 0.18), transparent 22%),
+      radial-gradient(circle at bottom, rgba(16, 185, 129, 0.14), transparent 28%),
+      linear-gradient(180deg, #020617 0%, #0f172a 45%, #020617 100%);
+    background-attachment: fixed;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  ::selection {
+    @apply bg-cyan-400/30 text-white;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-black/30 backdrop-blur-xl;
+  }
+
+  .glass-panel-strong {
+    @apply rounded-3xl border border-cyan-400/20 bg-slate-900/70 shadow-2xl shadow-cyan-950/20 backdrop-blur-xl;
+  }
+
+  .section-title {
+    @apply text-xl font-semibold tracking-tight text-white;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-slate-400;
+  }
+
+  .pill-tab {
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300;
+  }
+
+  .metric-card {
+    @apply glass-panel relative overflow-hidden p-5;
+  }
+
+  .metric-card::before {
+    content: '';
+    @apply absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent;
+  }
+}
